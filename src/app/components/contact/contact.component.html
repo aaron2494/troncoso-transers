@@ -1,93 +1,107 @@
-<form id="contacto" [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form-container">
-  <!-- Nombre -->
-  <div class="form-group">
-   
-    <input type="text" id="nombre" placeholder="nombre" formControlName="nombre">
-    <div *ngIf="hasError('nombre', 'required')" class="error-message">
-      {{ getErrorMessage('nombre') }}
-    </div>
-    <div *ngIf="hasError('nombre', 'minlength')" class="error-message">
-      {{ getErrorMessage('nombre') }}
-    </div>
-  </div>
-
-  <!-- Email -->
-  <div class="form-group">
-   
-    <input type="email" id="email" placeholder="Email" formControlName="email">
-    <div *ngIf="hasError('email', 'required')" class="error-message">
-      {{ getErrorMessage('email') }}
-    </div>
-    <div *ngIf="hasError('email', 'email')" class="error-message">
-      {{ getErrorMessage('email') }}
-    </div>
-  </div>
-
-  <!-- Celular -->
-  <div class="form-group">
-    <input type="tel" id="celular" placeholder="Celular" formControlName="celular">
-    <div *ngIf="hasError('celular', 'required')" class="error-message">
-      {{ getErrorMessage('celular') }}
-    </div>
-    <div *ngIf="hasError('celular', 'pattern')" class="error-message">
-      {{ getErrorMessage('celular') }}
-    </div>
-  </div>
-
-  <!-- Fechas -->
-  <div class="form-row">
-    <div class="form-group">
-  
-      <input type="date" id="fechaSalida" placeholder="saldia" formControlName="fechaSalida">
-      <div *ngIf="hasError('fechaSalida', 'required')" class="error-message">
-        {{ getErrorMessage('fechaSalida') }}
+<!-- contact-form.component.html -->
+<div class="contact-form-wrapper">
+  <!-- Sección del Formulario -->
+  <div class="form-section">
+    <form id="contacto" [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form-container">
+      <h2 class="form-title"></h2>
+      
+      <!-- Nombre -->
+      <div class="form-group">
+        <input type="text" id="nombre" placeholder="Nombre" formControlName="nombre">
+        <div *ngIf="hasError('nombre', 'required')" class="error-message">
+          {{ getErrorMessage('nombre') }}
+        </div>
+        <div *ngIf="hasError('nombre', 'minlength')" class="error-message">
+          {{ getErrorMessage('nombre') }}
+        </div>
       </div>
-    </div>
 
-    <div class="form-group">
-     
-      <input type="date" id="fechaRegreso" formControlName="fechaRegreso">
-      <div *ngIf="hasError('fechaRegreso', 'required')" class="error-message">
-        {{ getErrorMessage('fechaRegreso') }}
+      <!-- Resto de tus campos del formulario... -->
+      <!-- Email -->
+      <div class="form-group">
+        <input type="email" id="email" placeholder="Email" formControlName="email">
+        <div *ngIf="hasError('email', 'required')" class="error-message">
+          {{ getErrorMessage('email') }}
+        </div>
+        <div *ngIf="hasError('email', 'email')" class="error-message">
+          {{ getErrorMessage('email') }}
+        </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Origen y Destino -->
-  <div class="form-row">
-    <div class="form-group">
-      <input type="text" id="origen" placeholder="Origen" formControlName="origen">
-      <div *ngIf="hasError('origen', 'required')" class="error-message">
-        {{ getErrorMessage('origen') }}
+      <!-- Celular -->
+      <div class="form-group">
+        <input type="tel" id="celular" placeholder="Celular" formControlName="celular">
+        <div *ngIf="hasError('celular', 'required')" class="error-message">
+          {{ getErrorMessage('celular') }}
+        </div>
+        <div *ngIf="hasError('celular', 'pattern')" class="error-message">
+          {{ getErrorMessage('celular') }}
+        </div>
       </div>
-    </div>
 
-    <div class="form-group">
-      <input type="text" id="destino" placeholder="Destino" formControlName="destino">
-      <div *ngIf="hasError('destino', 'required')" class="error-message">
-        {{ getErrorMessage('destino') }}
+      <!-- Fechas -->
+      <div class="form-row">
+        <div class="form-group">
+          <input type="date" id="fechaSalida" placeholder="Salida" formControlName="fechaSalida">
+          <div *ngIf="hasError('fechaSalida', 'required')" class="error-message">
+            {{ getErrorMessage('fechaSalida') }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="date" id="fechaRegreso" placeholder="Regreso" formControlName="fechaRegreso">
+          <div *ngIf="hasError('fechaRegreso', 'required')" class="error-message">
+            {{ getErrorMessage('fechaRegreso') }}
+          </div>
+        </div>
       </div>
-    </div>
+
+      <!-- Origen y Destino -->
+      <div class="form-row">
+        <div class="form-group">
+          <input type="text" id="origen" placeholder="Origen" formControlName="origen">
+          <div *ngIf="hasError('origen', 'required')" class="error-message">
+            {{ getErrorMessage('origen') }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" id="destino" placeholder="Destino" formControlName="destino">
+          <div *ngIf="hasError('destino', 'required')" class="error-message">
+            {{ getErrorMessage('destino') }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Pasajeros -->
+      <div class="form-group">
+        <input type="number" id="pasajeros" placeholder="Cantidad de pasajeros" formControlName="pasajeros" min="1">
+        <div *ngIf="hasError('pasajeros', 'required')" class="error-message">
+          {{ getErrorMessage('pasajeros') }}
+        </div>
+        <div *ngIf="hasError('pasajeros', 'min')" class="error-message">
+          {{ getErrorMessage('pasajeros') }}
+        </div>
+      </div>
+
+      <!-- Comentarios -->
+      <div class="form-group">
+        <textarea id="comentarios" placeholder="Comentarios" formControlName="comentarios" rows="3"></textarea>
+      </div>
+
+      <!-- Botón de enviar -->
+      <button type="submit" class="submit-btn" [disabled]="isLoading">
+        {{ isLoading ? 'ENVIANDO...' : 'COTIZAR VIAJE' }}
+      </button>
+    </form>
   </div>
 
-  <!-- Pasajeros -->
-  <div class="form-group">
-    <input type="number" id="pasajeros" placeholder="Cantidad de pasajeros" formControlName="pasajeros" min="1">
-    <div *ngIf="hasError('pasajeros', 'required')" class="error-message">
-      {{ getErrorMessage('pasajeros') }}
-    </div>
-    <div *ngIf="hasError('pasajeros', 'min')" class="error-message">
-      {{ getErrorMessage('pasajeros') }}
+  <!-- Sección de Imagen (solo en desktop) -->
+  <div class="image-section">
+    <div class="image-overlay"></div>
+    <div class="image-content">
+      <h3>Tu Viaje Perfecto Comienza Aquí</h3>
+      <p>Completá el formulario y nos pondremos en contacto para ofrecerte el mejor servicio</p>
     </div>
   </div>
-
-  <!-- Comentarios -->
-  <div class="form-group">
-    <textarea id="comentarios" placeholder="Comentarios" formControlName="comentarios" rows="3"></textarea>
-  </div>
-
-  <!-- Botón de enviar -->
-  <button type="submit" class="submit-btn" [disabled]="isLoading">
-    {{ isLoading ? 'ENVIANDO...' : 'COTIZAR VIAJE' }}
-  </button>
-</form>
+</div>
