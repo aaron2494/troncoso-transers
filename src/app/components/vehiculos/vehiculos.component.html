@@ -1,0 +1,24 @@
+<!-- vehicle-fleet.component.html -->
+
+<section class="vehicle-section" [class.visible]="isVisible">
+    
+    <div class="container">
+      <h2 class="section-title">NUESTRA FLOTA</h2>
+      
+      <div class="vehicles-container">
+        <div *ngFor="let vehicle of vehicles" 
+             class="vehicle-card" 
+             [class]="vehicle.animationClass">
+          <div class="vehicle-image-container">
+            <img [src]="vehicle.image" [alt]="vehicle.title" class="vehicle-image">
+          </div>
+          <div class="vehicle-info">
+            <h3>{{vehicle.title}}</h3>
+            <p>{{vehicle.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="diagonal-cut"></div>
+  </section> 
+ 

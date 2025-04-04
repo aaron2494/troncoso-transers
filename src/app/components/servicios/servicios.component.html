@@ -1,0 +1,45 @@
+<!-- servicios.component.html -->
+<section id="servicios" class="services-section">
+    <div class="container">
+      <h2 class="section-title">SERVICIOS</h2>
+      
+      <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let item of services; let i = index" 
+               class="carousel-item" 
+               [class.active]="i === 0">
+            <div class="service-image-container">
+              <img [src]="item.image" class="d-block w-100" [alt]="item.title">
+            </div>
+            <div class="service-text-container">
+              <h3>{{item.title}}</h3>
+              <p>{{item.description}}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="carousel-indicators-container">
+          <div class="carousel-indicators">
+            <button *ngFor="let item of services; let i = index" 
+                    type="button" 
+                    data-bs-target="#servicesCarousel" 
+                    [attr.data-bs-slide-to]="i" 
+                    [class.active]="i === 0"
+                    [attr.aria-current]="i === 0 ? 'true' : null"
+                    [attr.aria-label]="'Slide ' + (i + 1)"></button>
+          </div>
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    
+    <div class="diagonal-cut"></div>
+  </section>

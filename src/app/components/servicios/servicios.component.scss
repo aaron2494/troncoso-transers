@@ -1,0 +1,184 @@
+/* servicios.component.scss */
+.services-section {
+    position: relative;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 4rem 0 8rem;
+    overflow: hidden;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+  }
+  
+  .carousel {
+    max-width: 400px;
+    margin: 0 auto;
+    
+  }
+  
+  .carousel-inner {
+    // Aseguramos que el contenedor interno no cambie de tamaño
+    height: 550px; // Ajusta esta altura según necesites
+    position: relative;
+  }
+  
+  .carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+    padding-bottom: 60px; // Espacio para los indicadores
+    
+  
+  }
+  
+  .service-image-container {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    
+    img {
+        border-radius: 5%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+  
+  .service-text-container {
+    color: #ff9203;
+    padding: 2rem;
+    text-align: center;
+    min-height: 150px; // Altura fija para el texto
+    
+    h3 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    
+    p {
+        color: #ff9203;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      
+    }
+  }
+  
+  .carousel-indicators-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 1rem;
+  }
+  
+  .carousel-indicators {
+    position: static;
+    margin: 0;
+  
+    
+    button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid white;
+      background-color: transparent;
+      margin: 0 5px;
+      
+      &.active {
+        background-color: white;
+      }
+    }
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    opacity: 0;
+  }
+  
+  .diagonal-cut {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: white;
+    clip-path: polygon(0 0%, -100% 0, 100% 100%, 0% 100%);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .carousel-inner {
+      height: 500px;
+    }
+    
+    .service-image-container {
+      height: 350px;
+    }
+    
+    .service-text-container h3 {
+      font-size: 1.6rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .services-section {
+      padding: 3rem 0 6rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .carousel-inner {
+      height: 450px;
+    }
+    
+    .service-text-container {
+      padding: 1.5rem;
+      min-height: 130px;
+      
+      h3 {
+        font-size: 1.4rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .carousel-inner {
+      height: 400px;
+    }
+    
+    .service-image-container {
+      height: 250px;
+    }
+    
+    .service-text-container {
+      padding: 1rem;
+      min-height: 110px;
+      
+      h3 {
+        font-size: 1.2rem;
+      }
+    }
+  }

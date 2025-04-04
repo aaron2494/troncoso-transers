@@ -1,0 +1,225 @@
+/* reviews.component.scss */
+.reviews-section {
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #1a1a1a;
+  }
+  
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    color:#ffae00;
+    font-weight: 700;
+  }
+  
+  .reviews-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: #ffae00;
+      border-radius: 2px;
+    }
+  }
+  
+  .review-card {
+    min-width: 85%;
+    background: white;
+    border-radius: 10px;
+    padding: 1.2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    scroll-snap-align: start;
+  }
+  
+  .review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+    border: 2px solid #ffae00;
+  }
+  
+  .reviewer-info {
+    h3 {
+      margin: 0;
+      font-size: 1rem;
+      color: #333;
+    }
+  }
+  
+  .stars {
+    color: #ffae00;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    
+    .half {
+      position: relative;
+      
+      &::after {
+        content: '★';
+        position: absolute;
+        left: 0;
+        width: 50%;
+        overflow: hidden;
+        color: #ccc;
+      }
+    }
+  }
+  
+  .review-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #555;
+    margin: 0;
+    font-style: italic;
+  }
+  
+  .quote-banner {
+    background-color: #ffae00;
+    color: #333;
+    padding: 3rem 1rem;
+    text-align: center;
+    position: relative;
+    margin: 3rem 0;
+    
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background-color: #f8f8f8; /* Color del componente siguiente */
+    }
+    
+    &::before {
+      top: -20px;
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    }
+    
+    &::after {
+      bottom: -20px;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+      background-color: #fff; /* Color del componente que sigue */
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      line-height: 1;
+      margin: 0;
+    }
+  }
+  /* Pequeños ajustes para pantallas un poco más grandes */
+  @media (min-width: 400px) {
+    .review-card {
+      min-width: 80%;
+    }
+  }
+  
+  @media (min-width: 576px) {
+    .reviews-section {
+      padding: 3rem 1.5rem;
+    }
+    
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+    
+    .review-card {
+      min-width: 300px;
+      padding: 1.5rem;
+    }
+    
+    .profile-img {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .reviewer-info h3 {
+      font-size: 1.1rem;
+    }
+    
+    .review-text {
+      font-size: 1rem;
+    }
+  }
+  /* quote-overlay.component.scss */
+.quote-overlay-container {
+  position: relative;
+  width: 100%;
+  margin: -50px 0; /* Ajusta para superponer */
+}
+
+.quote-overlay {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 100;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    /* Forma con bordes laterales inclinados */
+    clip-path: polygon(
+      10% 0%,     /* Punto izquierdo superior (inclinación) */
+      100% 0%,     /* Punto derecho superior (inclinación) */
+      100% 00%,   /* Punta derecha */
+      90% 100%,   /* Punto derecho inferior (inclinación) */
+      0% 100%,   /* Punto izquierdo inferior (inclinación) */
+      0% 100%      /* Punta izquierda */
+    );
+   
+  h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    margin: 0;
+    padding: 0 20px;
+  }
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .quote-overlay {
+    width: 250px;
+    height: 250px;
+    
+    h2 {
+      font-size: 2.2rem;
+    }
+  }
+}

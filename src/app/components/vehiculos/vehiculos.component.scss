@@ -1,0 +1,173 @@
+.vehicle-section {
+    position: relative;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 8rem 0; /* Aumenté el padding para los cortes diagonales */
+    overflow: hidden;
+    /* Tus estilos existentes... */
+    
+    /* Borde diagonal superior */
+    &::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: white;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+      z-index: 1;
+    }
+    
+    /* Borde diagonal inferior */
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: white;
+      clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+      z-index: 1;
+    }
+  }
+  
+  .container {
+    position: relative;
+    z-index: 2; /* Asegura que el contenido esté sobre los bordes diagonales */
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+    
+    .vehicle-section.visible & {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .vehicles-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .vehicle-card {
+    display: flex;
+    flex-direction: column;
+    
+    opacity: 0;
+    transition: opacity 1.5s ease, transform 1.5s ease; /* Animación más lenta */
+    
+    &.slide-in-left {
+      transform: translateX(-100%);
+      
+      .vehicle-section.visible & {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.6s; /* Retardo adicional */
+      }
+    }
+    
+    &.slide-in-right {
+      transform: translateX(100%);
+      
+      .vehicle-section.visible & {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 1.0s; /* Retardo adicional y diferente para efecto escalonado */
+      }
+    }
+  }
+  
+  .vehicle-image-container {
+   
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .vehicle-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease; /* Más lento el hover */
+    
+    .vehicle-card:hover & {
+      transform: scale(1.05);
+    }
+  }
+  
+  .vehicle-info {
+    text-align: left;
+    margin-top: 1.5rem;
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+    
+    .vehicle-section.visible & {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 1.2s; /* Texto aparece después de las imágenes */
+    }
+    
+    h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+      color: #fff;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ddd;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (min-width: 768px) {
+    .vehicles-container {
+      flex-direction: row;
+      justify-content: center;
+      gap: 2rem;
+    }
+    
+    .vehicle-card {
+      flex: 1;
+      max-width: 45%;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .vehicle-section {
+        padding: 5rem 0;
+        
+        &::before,
+        &::after {
+          height: 50px;
+        }
+      }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .vehicle-info {
+      h3 {
+        font-size: 1.5rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+    }
+  }

@@ -1,0 +1,102 @@
+.footer {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 2rem 2rem;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  
+  /* Columna Izquierda */
+  .left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .logo-z {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffae00;
+    line-height: 1;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  
+  .location, .email {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+  
+  .email {
+    color: #ffae00;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  /* Columna Derecha */
+  .right-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .social-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .social-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  
+  .icon-white {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Convierte el icono a blanco */
+    opacity: 0.9;
+    transition: opacity 0.3s;
+    
+    &:hover {
+      opacity: 1;
+    }
+  }
+  
