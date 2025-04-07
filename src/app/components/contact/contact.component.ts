@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule, NgIf } from '@angular/common';
-
+import Swal from 'sweetalert2';
 // Definimos un tipo para los nombres de los controles
 type FormControlNames = 
   'nombre' | 'email' | 'celular' | 'fechaSalida' | 
@@ -73,27 +73,29 @@ export class ContactComponent {
   }
 
   onSubmit() {
-    this.submitted = true;
-    
-    if (this.contactForm.invalid) {
-      return;
-    }
-
+    if (this.contactForm.invalid || this.isLoading) return;
+  
     this.isLoading = true;
     
-    // Ejemplo de envío al backend
-    this.http.post('https://tu-backend.com/api/contacto', this.contactForm.value)
+    this.http.post('http://localhost:3000/send-email', this.contactForm.value)
       .subscribe({
         next: () => {
-          this.isLoading = false;
-          // Resetear formulario después de enviar
+          // Muestra un modal o notificación profesional
+          Swal.fire({
+            icon: 'success',
+            title: '¡Reserva enviada!',
+            text: 'Te contactaremos en menos de 24 horas.'
+          });
           this.contactForm.reset();
-          this.submitted = false;
         },
-        error: (error) => {
-          this.isLoading = false;
-          console.error('Error al enviar:', error);
-        }
+        error: (err) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Hubo un problema. Por favor, inténtalo nuevamente.'
+          });
+        },
+        complete: () => this.isLoading = false
       });
   }
 }
