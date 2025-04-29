@@ -1,25 +1,50 @@
-<!-- home-banner.component.html -->
 <div id="inicio" class="hero-section">
   <nav class="navbar navbar-expand-lg navbar-dark transparent-navbar">
     <div class="container">
-      <a class="navbar-brand fw-bold" type="button"  (click)="scrollTo('inicio')">TroncosT</a>
+      <a class="navbar-brand fw-bold" type="button" (click)="scrollTo('inicio')">TroncosT</a>
       <button 
         class="navbar-toggler" 
         type="button" 
-        data-bs-toggle="collapse" 
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
+        (click)="toggleMenu()"
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      
+      <!-- Menú lateral para mobile -->
+      <div class="mobile-menu-overlay" [class.active]="menuActive" (click)="toggleMenu()"></div>
+      <div class="mobile-menu" [class.active]="menuActive">
+        <div class="mobile-menu-header">
+          <h3>Menu</h3>
+          <button class="close-menu" (click)="toggleMenu()">&times;</button>
+        </div>
+        <ul class="mobile-menu-items">
+          <li><a (click)="scrollTo('inicio'); toggleMenu()">INICIO</a></li>
+          <li class="menu-title">TRASLADO PRIVADO DE PASAJEROS</li>
+          <li><a (click)="scrollTo('contacto'); toggleMenu()">COTIZA TU VIAJE</a></li>
+          <li class="divider"></li>
+          <li><a (click)="scrollTo('servicios'); toggleMenu()">Servicios</a></li>
+          <li><a (click)="scrollTo('nosotros'); toggleMenu()">Nosotros</a></li>
+          <li><a>Flota</a></li>
+          <li><a>¿Por qué elegimos?</a></li>
+          <li><a>Reseñas</a></li>
+          <li><a (click)="scrollTo('contacto'); toggleMenu()">Contacto</a></li>
+        </ul>
+      </div>
+      
+      <!-- Menú normal para desktop -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link" type="button" (click)="scrollTo('servicios')">Servicios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" type="button"  (click)="scrollTo('nosotros')">Nosotros</a>
+            <a class="nav-link" type="button" (click)="scrollTo('nosotros')">Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" type="button" (click)="scrollTo('contacto')">flota</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" type="button" (click)="scrollTo('contacto')">reseñas</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" type="button" (click)="scrollTo('contacto')">Contacto</a>

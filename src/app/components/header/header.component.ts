@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import {  RouterModule } from '@angular/router';
 
 
@@ -11,17 +11,21 @@ import {  RouterModule } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  scrollTo(sectionId: string): void {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-      
-      // Actualizar la URL sin recargar
-      history.pushState(null, '', `#${sectionId}`);
+  menuActive = false;
+
+  toggleMenu() {
+    this.menuActive = !this.menuActive;
+  }
+
+  scrollTo(section: string) {
+    document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Cerrar menú al hacer scroll (opcional)
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    if (this.menuActive) {
+      this.menuActive = false;
     }
-}
- 
+  }
 }

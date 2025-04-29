@@ -12,28 +12,29 @@ import { RouterModule } from '@angular/router';
 export class ServiciosComponent {
   services = [
     {
-      title: 'Traslado de personal empresarial',
-      image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-      description: 'Transporte seguro y confiable para su equipo de trabajo'
+      title: 'Traslado a <strong>eventos empresariales o sociales</strong> ',
+      image: '/assets/Foto1.png',
     },
     {
-      title: 'Servicio ejecutivo',
-      image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-      description: 'Vehículos de lujo para clientes exigentes'
+      title: 'Traslado a <strong>Aeropuertos y Hoteles</strong> ',
+      image:'/assets/Foto2.png',
     },
     {
-      title: 'Traslados aeropuerto',
-      image: 'https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-      description: 'Puntualidad garantizada para sus vuelos'
+      title: '<strong>City Tours:</strong> turismo o paseos ',
+      image: '/assets/Foto3.png',
     },
     {
-      title: 'Eventos especiales',
-      image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-      description: 'Transporte para bodas, graduaciones y más'
+      title: 'Traslado de <strong>corta o larga distancia</strong> ',
+      image:'/assets/Foto4.png',
     },
     {
-      title: 'Servicio turístico',
-      image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+      title: 'Traslados <strong>ejecutivos VIP</strong> ',
+      image:'/assets/Foto5.png',
+      description: 'Recorridos por la ciudad con comodidad'
+    },
+    {
+      title: 'Traslados <strong>escolares</strong> ',
+      image:'/assets/Foto6.png',
       description: 'Recorridos por la ciudad con comodidad'
     }
   ];

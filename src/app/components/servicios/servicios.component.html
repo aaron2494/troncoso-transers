@@ -12,8 +12,7 @@
               <img [src]="item.image" class="d-block w-100" [alt]="item.title">
             </div>
             <div class="service-text-container">
-              <h3>{{item.title}}</h3>
-              <p>{{item.description}}</p>
+              <h3 [innerHTML]="item.title"></h3>
             </div>
           </div>
         </div>

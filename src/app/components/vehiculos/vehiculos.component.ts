@@ -10,15 +10,15 @@ import { Component } from '@angular/core';
 export class VehiculosComponent {
   vehicles = [
     {
-      title: 'Vehículo Ejecutivo',
-      description: 'Comodidad y elegancia para su traslado empresarial',
-      image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      title: 'MINI VAN <br>MERCEDES VITO',
+      description: '6 pasajeros',
+      image: '/assets/SPRINTERMOBILE.png',
       animationClass: 'slide-in-left'
     },
     {
-      title: 'Vehículo Premium',
-      description: 'Lujo y confort para experiencias exclusivas',
-      image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      title: 'MINI BUS <br>MERCEDES SPRINTER',
+      description: '15 Y 19 pasajeros',
+      image: '/assets/VITOOmobile.png',
       animationClass: 'slide-in-right'
     }
   ];

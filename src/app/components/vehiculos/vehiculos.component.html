@@ -13,7 +13,7 @@
             <img [src]="vehicle.image" [alt]="vehicle.title" class="vehicle-image">
           </div>
           <div class="vehicle-info">
-            <h3>{{vehicle.title}}</h3>
+            <h3 [innerHTML]="vehicle.title"></h3>
             <p>{{vehicle.description}}</p>
           </div>
         </div>
