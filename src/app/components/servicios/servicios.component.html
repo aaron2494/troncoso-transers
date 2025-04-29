@@ -2,8 +2,21 @@
 <section id="servicios" class="services-section">
     <div class="container">
       <h2 class="section-title">SERVICIOS</h2>
-      
-      <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
+
+ <!-- servicios.component.html -->
+<div class="services-desktop d-none d-lg-block">
+  <div class="services-row">
+    <div *ngFor="let item of services" class="service-item">
+      <div class="service-image-container">
+        <img [src]="item.image" [alt]="item.title">
+        <div class="service-text-overlay">
+          <h3 [innerHTML]="item.title"></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div id="servicesCarousel" class="carousel slide d-lg-none" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div *ngFor="let item of services; let i = index" 
                class="carousel-item" 

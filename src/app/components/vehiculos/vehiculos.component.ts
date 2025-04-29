@@ -10,13 +10,13 @@ import { Component } from '@angular/core';
 export class VehiculosComponent {
   vehicles = [
     {
-      title: 'MINI VAN <br>MERCEDES VITO',
+      title: 'MINI BUS <br>MERCEDES SPRINTER',
       description: '6 pasajeros',
       image: '/assets/SPRINTERMOBILE.png',
       animationClass: 'slide-in-left'
     },
     {
-      title: 'MINI BUS <br>MERCEDES SPRINTER',
+      title: 'MINI VAN <br>MERCEDES VITO ',
       description: '15 Y 19 pasajeros',
       image: '/assets/VITOOmobile.png',
       animationClass: 'slide-in-right'
