@@ -18,7 +18,6 @@
 
   @media (min-width: 992px) {
     flex-direction: row;
-    align-items: flex-start;
     gap: 4rem;
   }
 }
@@ -28,27 +27,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 200px;
-  background-color: #f5f5f5;
-  border-radius: 50%;
   margin-bottom: 1rem;
 
-  @media (min-width: 992px) {
-    margin-bottom: 0;
-    flex-shrink: 0; /* Evita que el logo se reduzca */
-  }
-
-  .logo-text {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #555;
-    line-height: 1.2;
-
-    &:first-child {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
+  .company-logo {
+    height: 350px;
+    width: auto;
   }
 }
 
@@ -83,7 +66,7 @@
 .description {
   font-size: 1.1rem;
   line-height: 1.6;
-  text-align: center;
+  text-align: left;
   max-width: 800px;
   margin: 0 auto 1.5rem;
   white-space: pre-line; 
@@ -111,6 +94,7 @@
   }
   
   .description {
+    text-align: center;
     font-size: 1rem;
     padding: 0 1rem;
     white-space: pre-line; 

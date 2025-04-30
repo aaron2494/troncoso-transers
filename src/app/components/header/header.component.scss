@@ -24,39 +24,69 @@
 .transparent-navbar {
   background-color: transparent !important;
   position: fixed; 
-  top: 0;
+  top: -40px;
   left: 0;
   right: 0;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   z-index: 1000;
   transition: all 0.3s ease;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  align-items: center; /* Alinea verticalmente todos los elementos */
   
+
+  /* Contenedor principal */
+  .navbar-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+
+  /* Estado cuando hace scroll */
   &.scrolled {
     background-color: rgba(0, 0, 0, 0.9) !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 0.5rem 0;
+    min-height: 60px; /* Reduce la altura al hacer scroll */
+
+    .navbar-logo {
+      height: 180px !important; /* Tamaño reducido al hacer scroll */
+    }
   }
-  
+
+  /* Estilos para el logo */
   .navbar-brand {
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    .navbar-logo {
+      height: 200px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      transition: all 0.3s ease;
+      margin-left: -20px; /* Ajuste fino para pegar al margen */
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
-  
+
+  /* Estilos para los links de navegación */
   .nav-link {
     color: rgba(255, 255, 255, 0.8) !important;
     font-weight: 500;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    padding: 0.5rem 0.8rem !important;
     transition: color 0.3s;
     
     &:hover {
       color: white !important;
     }
   }
-}
-
+ }
+ 
 /* Estilos del menú lateral móvil */
 .mobile-menu-overlay {
   position: fixed;
@@ -187,8 +217,8 @@
   background-color: #ffae00;
   border: none;
   transition: all 0.3s;
-  margin-top: auto;
-  margin-bottom: 5rem;
+  margin-top: 4rem;
+
   
   &:hover {
     background-color: #ff9203;
