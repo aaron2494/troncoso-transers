@@ -3,14 +3,25 @@
     <div class="container">
       <h2 class="section-title">SERVICIOS</h2>
 
- <!-- servicios.component.html -->
-<div class="services-desktop d-none d-lg-block">
-  <div class="services-row">
-    <div *ngFor="let item of services" class="service-item">
-      <div class="service-image-container">
-        <img [src]="item.image" [alt]="item.title">
-        <div class="service-text-overlay">
-          <h3 [innerHTML]="item.title"></h3>
+ <!-- Versión desktop - Slider infinito -->
+ <div class="services-desktop d-none d-lg-block">
+  <div class="services-slider">
+    <div class="services-track">
+      <div *ngFor="let item of services" class="service-item">
+        <div class="service-image-container">
+          <img [src]="item.image" [alt]="item.title">
+          <div class="service-text-overlay">
+            <h3 [innerHTML]="item.title"></h3>
+          </div>
+        </div>
+      </div>
+      <!-- Duplicamos los items para el efecto infinito -->
+      <div *ngFor="let item of services" class="service-item">
+        <div class="service-image-container">
+          <img [src]="item.image" [alt]="item.title">
+          <div class="service-text-overlay">
+            <h3 [innerHTML]="item.title"></h3>
+          </div>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -9,7 +9,8 @@ import { RouterModule } from '@angular/router';
   templateUrl: './servicios.component.html',
   styleUrl: './servicios.component.scss'
 })
-export class ServiciosComponent {
+export class ServiciosComponent implements OnInit{
+ 
   services = [
     {
       title: 'Traslado a <strong>eventos empresariales o sociales</strong> ',
@@ -38,5 +39,8 @@ export class ServiciosComponent {
       description: 'Recorridos por la ciudad con comodidad'
     }
   ];
-  
+  ngOnInit(): void {
+    // Calculamos el número total de items para la animación
+    document.documentElement.style.setProperty('--total-items', this.services.length.toString());
+}
 }

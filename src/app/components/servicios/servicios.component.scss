@@ -15,23 +15,41 @@
     font-weight: bold;
     letter-spacing: 3px;
   }
-/* servicios.component.scss - solo versión desktop */
-.services-desktop {
-  overflow-x: auto;
-  padding-bottom: 20px;
+
+  /* Estilos para el slider infinito desktop */
+  .services-desktop {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
   
-  .services-row {
-    display: flex;
-    gap: 1.5rem;
-    min-width: max-content;
-    padding: 0 1rem;
-    
-    .service-item {
-      flex: 0 0 250px;
-      position: relative;
+    .services-slider {
+      width: 100%;
+      overflow: hidden;
+    }
+  
+    .services-track {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+      animation: scroll 30s linear infinite;
       
+      &:hover {
+        animation-play-state: paused;
+      }
+    }
+  
+    .service-item {
+      flex: 0 0 280px;
+      position: relative;
+      transition: transform 0.3s ease;
+  
+      &:hover {
+        transform: scale(1.05);
+      }
+  
       .service-image-container {
-        height: 300px; /* Aumenté la altura para mejor visualización */
+        height: 320px;
         width: 100%;
         overflow: hidden;
         position: relative;
@@ -59,38 +77,21 @@
             font-size: 1.3rem;
             margin: 0;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-            transition: transform 0.3s ease;
-          }
-        }
-        
-        &:hover {
-          img {
-            opacity: 0.7;
-          }
-          
-          .service-text-overlay h3 {
-            transform: translateY(-5px);
           }
         }
       }
     }
   }
   
-  /* Ocultar scrollbar pero mantener funcionalidad */
-  &::-webkit-scrollbar {
-    height: 5px;
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * var(--total-items))); 
+      /* Ajusta --total-items con el número de servicios */
+    }
   }
-  
-  &::-webkit-scrollbar-track {
-    background: #1a1a1a;
-    opacity: 1;
-  }
-  
-  &::-webkit-scrollbar-thumb {
-    background: #ff9203;
-    border-radius: 10px;
-  }
-}
  /* Estilos para la versión carrusel (mobile) */
 .carousel {
   max-width: 400px;
