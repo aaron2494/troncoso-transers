@@ -210,6 +210,9 @@
 }
 
 @media (min-width: 993px) {
+  .hero-section{
+    background-image: url('./../../../assets/Bannerpc.png');
+  }
   /* Ocultar menú móvil en desktop */
   .mobile-menu-overlay,
   .mobile-menu {
