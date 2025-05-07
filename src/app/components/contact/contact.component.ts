@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule, NgIf } from '@angular/common';
-import Swal from 'sweetalert2';
+import emailjs from 'emailjs-com';
 // Definimos un tipo para los nombres de los controles
 type FormControlNames = 
   'nombre' | 'email' | 'celular' | 'fechaSalida' | 
@@ -73,29 +73,37 @@ export class ContactComponent {
   }
 
   onSubmit() {
-    if (this.contactForm.invalid || this.isLoading) return;
-  
-    this.isLoading = true;
+    this.submitted = true;
     
-    this.http.post('http://localhost:3000/send-email', this.contactForm.value)
-      .subscribe({
-        next: () => {
-          // Muestra un modal o notificación profesional
-          Swal.fire({
-            icon: 'success',
-            title: '¡Reserva enviada!',
-            text: 'Te contactaremos en menos de 24 horas.'
-          });
-          this.contactForm.reset();
-        },
-        error: (err) => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Hubo un problema. Por favor, inténtalo nuevamente.'
-          });
-        },
-        complete: () => this.isLoading = false
+    if (this.contactForm.invalid) {
+      return;
+    }
+
+    this.isLoading = true;
+
+    const templateParams = {
+      nombre: this.contactForm.value.nombre,
+      email: this.contactForm.value.email,
+      celular: this.contactForm.value.celular,
+      fechaSalida:this.contactForm.value.fechaSalida,
+      fechaRegreso:this.contactForm.value.fechaRegreso,
+      origen:this.contactForm.value.origen,
+      destino:this.contactForm.value.destino,
+      pasajeros:this.contactForm.value.pasajeros,
+      comentarios: this.contactForm.value.comentarios
+    };
+
+    emailjs.send('service_cymg6d6', 'template_xlmmhxp', templateParams, 'u8Vz8nts2MqNMtH5E')
+      .then(() => {
+        this.isLoading = false;
+        alert('¡Formulario enviado con éxito!');
+        this.contactForm.reset();
+        this.submitted = false;
+      })
+      .catch((error) => {
+        this.isLoading = false;
+        console.error('Error al enviar formulario:', error);
+        alert('Error al enviar el formulario, por favor intentalo de nuevo.');
       });
   }
 }
