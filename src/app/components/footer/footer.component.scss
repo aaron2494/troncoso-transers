@@ -89,4 +89,17 @@
       opacity: 1;
     }
   }
-  
+  @media (min-width: 993px) {
+   
+    .left-column {
+      margin-left: 80px;
+      display: flex;
+      flex-direction: column;
+    }
+    .right-column {
+      margin-right: 80px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+  }
