@@ -22,7 +22,7 @@ import { Meta, Title } from '@angular/platform-browser';
 export class AppComponent {
   constructor(private meta: Meta, private title: Title) {}
   ngOnInit() {
-    this.title.setTitle('Troncoso transfers- Sur de Argentina | Empresa troncoso transfers');
+    this.title.setTitle('Troncoso transfers - Sur de Argentina | Empresa troncoso transfers');
     this.meta.addTags([
       { name: 'description', content: 'Empresa líder en transporte de pasajeros en combis por el sur de Argentina. Servicios confiables y rutas cubiertas en toda la Patagonia.' },
       { name: 'keywords', content: 'transporte combis, pasajeros sur argentina, viajes patagonia, combis patagónicas, transporte terrestre argentina' },
