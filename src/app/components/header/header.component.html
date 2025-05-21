@@ -26,9 +26,9 @@
           <li class="divider"></li>
           <li><a (click)="scrollTo('servicios'); toggleMenu()">Servicios</a></li>
           <li><a (click)="scrollTo('nosotros'); toggleMenu()">Nosotros</a></li>
-          <li><a>Flota</a></li>
-          <li><a>¿Por qué elegimos?</a></li>
-          <li><a>Reseñas</a></li>
+          <li><a (click)="scrollTo('flota'); toggleMenu()">Flota</a></li>
+          <li><a (click)="scrollTo('razones'); toggleMenu()">¿Por qué elegimos?</a></li>
+          <li><a (click)="scrollTo('reseñas'); toggleMenu()">Reseñas</a></li>
           <li><a (click)="scrollTo('contacto'); toggleMenu()">Contacto</a></li>
         </ul>
       </div>
@@ -43,10 +43,10 @@
             <a class="nav-link" type="button" (click)="scrollTo('nosotros')">Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" type="button" (click)="scrollTo('contacto')">flota</a>
+            <a class="nav-link" type="button" (click)="scrollTo('flota')">flota</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" type="button" (click)="scrollTo('contacto')">reseñas</a>
+            <a class="nav-link" type="button" (click)="scrollTo('reseñas')">reseñas</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" type="button" (click)="scrollTo('contacto')">Contacto</a>

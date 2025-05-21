@@ -24,9 +24,9 @@ export class AppComponent {
   ngOnInit() {
     this.title.setTitle('Troncoso transfers - Sur de Argentina | Empresa troncoso transfers');
     this.meta.addTags([
-      { name: 'description', content: 'Empresa líder en transporte de pasajeros en combis por el sur de Argentina. Servicios confiables y rutas cubiertas en toda la Patagonia.' },
-      { name: 'keywords', content: 'transporte combis, pasajeros sur argentina, viajes patagonia, combis patagónicas, transporte terrestre argentina' },
-      { name: 'og:title', content: 'Transporte en Combis - Sur de Argentina | Empresa troncoso transfers' },
+      { name: 'description', content: 'Empresa líder en transporte de pasajeros en combis por toda Argentina. Servicios confiables y rutas cubiertas en toda la Argentina.' },
+      { name: 'keywords', content: 'transporte combis, pasajeros de zona sur argentina,viajes corta distancia, viajes larga distancia, transporte terrestre argentina' },
+      { name: 'og:title', content: 'Transporte en Combis - Zona sur ,Lomas de zamora , Argentina | Empresa troncoso transfers' },
       { name: 'og:description', content: 'Servicios de transporte en combis por toda la Patagonia Argentina' },
       { name: 'og:type', content: 'website' },
       { name: 'og:locale', content: 'es_AR' }
