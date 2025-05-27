@@ -10,7 +10,7 @@
              class="vehicle-card" 
              [class]="vehicle.animationClass">
           <div class="vehicle-image-container">
-            <img [src]="vehicle.image" [alt]="vehicle.title" class="vehicle-image">
+           <img [src]="getImage(vehicle)" [alt]="vehicle.title" class="vehicle-image">
           </div>
           <div class="vehicle-info">
             <h3 [innerHTML]="vehicle.title"></h3>
