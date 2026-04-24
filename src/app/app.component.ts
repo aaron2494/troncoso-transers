@@ -10,19 +10,20 @@ import { ContactComponent } from "./components/contact/contact.component";
 import { FooterComponent } from "./components/footer/footer.component";
 
 import { Meta, Title } from '@angular/platform-browser';
+import { SliderComponent } from "./components/slider/slider.component";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, ServiciosComponent, NosotrosComponent, VehiculosComponent, RazonesComponent, OpinionesComponent, ContactComponent, FooterComponent],
+  imports: [RouterOutlet, HeaderComponent, ServiciosComponent, NosotrosComponent, VehiculosComponent, RazonesComponent, OpinionesComponent, ContactComponent, FooterComponent, SliderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   constructor(private meta: Meta, private title: Title) {}
   ngOnInit() {
-    this.title.setTitle('Troncoso transfers - Sur de Argentina | Empresa troncoso transfers');
+    this.title.setTitle('Troncoso transfers -  Zona Sur de Argentina | Empresa troncoso transfers');
     this.meta.addTags([
       { name: 'description', content: 'Empresa líder en transporte de pasajeros en combis por toda Argentina. Servicios confiables y rutas cubiertas en toda la Argentina.' },
       { name: 'keywords', content: 'transporte combis, pasajeros de zona sur argentina,viajes corta distancia, viajes larga distancia, transporte terrestre argentina' },

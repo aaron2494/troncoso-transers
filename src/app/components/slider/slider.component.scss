@@ -1,0 +1,26 @@
+.slider-marquee {
+  background-color: #f1f1f1; // o blanco puro si querés #fff
+  padding: 5px 0;
+  overflow: hidden;
+  white-space: nowrap;
+
+}
+
+.marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee span {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 50px; // espacio entre repeticiones
+  color: #222;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
